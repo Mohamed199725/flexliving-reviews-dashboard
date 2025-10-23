@@ -1,4 +1,6 @@
-const API_BASE = 'http://localhost:3001';
+const API_BASE = window.location.hostname === 'localhost' 
+  ? 'http://localhost:3001' 
+  : window.location.origin;
 
 export async function fetchReviews() {
   try {
@@ -50,4 +52,5 @@ export async function setApproval(reviewId, approved) {
     console.error('❌ Approval error:', error);
     throw error;
   }
+
 }
