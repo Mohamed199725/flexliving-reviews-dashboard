@@ -3,7 +3,7 @@ const cors = require('cors');
 const reviewsRaw = require('./mockReviews.json');
 
 const app = express();
-app.use(cors());
+app.use(cors(origin: ['http://localhost:3000', 'https://flexliving-reviews-dashboard-wybm.onrender.com']));
 app.use(express.json()); 
 
 const PORT = process.env.PORT || 3001;
@@ -60,3 +60,4 @@ app.get('*', (req, res) => {
 
 
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
