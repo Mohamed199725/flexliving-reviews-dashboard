@@ -53,9 +53,10 @@ app.post('/api/reviews/approve', (req, res) => {
 
 // To Serve frontend build after deployment
 const path = require('path');
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.use(express.static(path.join(__dirname, '../Frontend/frontend/build')));
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+ res.sendFile(path.join(__dirname, '../Frontend/frontend/build', 'index.html'));
 });
+
 
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
