@@ -4,11 +4,10 @@ const API_BASE = window.location.hostname === 'localhost'
 
 export async function fetchReviews() {
   try {
-    console.log('🔄 Fetching reviews...');
+    console.log('🔄 Fetching reviews from:', `${API_BASE}/api/reviews/hostaway`);
     const r = await fetch(`${API_BASE}/api/reviews/hostaway`);
     const json = await r.json();
     console.log('✅ API Response:', json);
-    
     
     if (json.status === 'success') {
       console.log('🎯 Reviews found:', json.result.length);
@@ -54,3 +53,4 @@ export async function setApproval(reviewId, approved) {
   }
 
 }
+
